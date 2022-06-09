@@ -16,13 +16,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        FirebaseMessaging.getInstance().token.addOnCompleteListener {
-//            if (!it.isSuccessful) {
-//                return@addOnCompleteListener
-//            }
-//            val pushToken = it.result
-//            Log.i("TAG", "pushToken: $pushToken")
-//        }
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            if (!it.isSuccessful) {
+                return@addOnCompleteListener
+            }
+            val pushToken = it.result
+            Log.i("TAG", "pushToken: $pushToken")
+        }
 
         LocalBroadcastManager.getInstance(this).registerReceiver(receiver, IntentFilter("com.ranzan.broadcast"))
     }
